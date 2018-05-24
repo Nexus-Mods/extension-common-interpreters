@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as process from 'process';
-import { log, types } from 'vortex-api';
+import { log, types, util } from 'vortex-api';
 import * as which from 'which';
 
 function exeExtension(): string {
@@ -33,7 +33,8 @@ const pythonPath: string = findPython();
 function init(context: types.IExtensionContext): boolean {
   context.registerInterpreter('.jar', (input: types.IRunParameters) => {
     if (javaPath === undefined) {
-      throw new Error('java not installed');
+      throw new (util as any).MissingInterpreter('Java isn\'t installed',
+        'https://www.java.com/de/download/');
     }
     return {
       executable: javaPath,
@@ -51,6 +52,10 @@ function init(context: types.IExtensionContext): boolean {
   });
 
   context.registerInterpreter('.py', (input: types.IRunParameters) => {
+    if (pythonPath === undefined) {
+      throw new (util as any).MissingInterpreter('Python isn\'t installed',
+        'https://www.python.org/downloads/');
+    }
     return {
       executable: pythonPath,
       args: [input.executable].concat(input.args),
