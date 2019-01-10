@@ -162,8 +162,6 @@ async-each@^1.0.0:
 async@^2.1.2:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
-  dependencies:
-    lodash "^4.14.0"
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -1356,7 +1354,7 @@ lodash-es@^4.2.1:
   version "4.17.7"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.7.tgz#db240a3252c3dd8360201ac9feef91ac977ea856"
 
-lodash@^4.14.0, lodash@^4.2.1:
+lodash@^4.2.1:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -2405,8 +2403,8 @@ vm-browserify@0.0.4:
     indexof "0.0.1"
 
 vortex-api@Nexus-Mods/vortex-api:
-  version "0.14.0"
-  resolved "https://codeload.github.com/Nexus-Mods/vortex-api/tar.gz/8e4594913b6f188d83839c7939ba6f7aeedbfda0"
+  version "0.17.0-r3"
+  resolved "https://codeload.github.com/Nexus-Mods/vortex-api/tar.gz/03b2164b471b786977277c966563c105466f5a49"
 
 watchpack@^1.4.0:
   version "1.5.0"

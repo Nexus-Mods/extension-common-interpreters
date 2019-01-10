@@ -62,6 +62,27 @@ function init(context: types.IExtensionContext): boolean {
       options: input.options,
     };
   });
+
+  if (process.platform === 'win32') {
+    context.registerInterpreter('.cmd', (input: types.IRunParameters) => {
+      return {
+        executable: 'cmd.exe',
+        args: ['/K', `"${input.executable}"`].concat(input.args),
+        options: input.options,
+      };
+    });
+
+    context.registerInterpreter('.bat', (input: types.IRunParameters) => {
+      return {
+        executable: 'cmd.exe',
+        args: ['/K', `"${input.executable}"`].concat(input.args),
+        options: {
+          ...input.options,
+          shell: true,
+        },
+      };
+    });
+  }
   return true;
 }
 
